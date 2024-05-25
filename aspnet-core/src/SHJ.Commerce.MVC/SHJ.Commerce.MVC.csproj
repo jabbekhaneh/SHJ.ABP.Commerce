@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\Header\" />
+    <Folder Include="Components\Shared\Scripts\" />
+    <Folder Include="Components\Shared\Styles\" />
+    <Folder Include="wwwroot\asserts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SHJ.ABP.Commerce.HttpApi.Client\SHJ.ABP.Commerce.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\SHJ.ABP.Commerce.HttpApi\SHJ.ABP.Commerce.HttpApi.csproj" />
+  </ItemGroup>
+
+</Project>

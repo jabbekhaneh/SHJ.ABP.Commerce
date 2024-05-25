@@ -1,0 +1,123 @@
+{
+  "culture": "fa",
+  "texts": {
+    //-------------------------------Public
+    "Search": "جستجو",
+    "Edit": "ویرایش",
+    "Title": "عنوان",
+    "Content": "محتوا",
+    "Style": "سبک",
+    "Script": "اسکریپت",
+    "Close": "بسته",
+    "Save": "ذخیره",
+    "Yes": "بله",
+    "No": "خیر",
+    "Ok": "باشه",
+    "Details": "جزئیات",
+    "LastModification": "اخرین تغییر دهنده",
+    "Creator": "ایجاد کننده",
+    "CreationTime": "زمان ایجاد",
+    "LastModificationTime": "آخرین زمان اصلاح",
+    "True": "درست",
+    "False": "غلط",
+    "PropertyName": "عنوان",
+    "Value": "مقدار",
+    "StartDate": "تاریخ شروع",
+    "EndDate": "تاریخ پایان",
+    "Date": "تاریخ",
+    "URL": "آدرس اینترنتی",
+    "ApplicationName": "نام نرم افزار",
+    "Duration-Min-Max": "حداکثر مدت زمان",
+    "Duration": "مدت زمان",
+    "HttpMethod": "روش Http",
+    "HttpStatusCode": "کد وضعیت Http",
+    "HTTPRequest": "درخواست http",
+    "IPAddress": "آدرس آی پی",
+    "ClientIpAddress": "آدرس IP مشتری",
+    "ClientId": "شناسه مشتری",
+    "HasException": "استثنا دارد?",
+    "CorrelationId": "شناسه همبستگی",
+    "TenantName": "نام مستاجر",
+    "ImpersonatorTenantName": "جعل هویت مستأجر",
+    "ExecutionTime": "زمان اجرا",
+    "ExecutionDuration": "مدت زمان اجرا",
+    "ClientName": "نام مشتری",
+    "BrowserInfo": "اطلاعات مرورگر",
+    "Comments": "نظرات",
+    "Exceptions": "استثناها",
+    "Identity": "احراز هویت",
+
+    //-------------------------------Menu
+    "Menu:Dashboard": "داشبورد",
+    "Menu:CMS": "مدیریت محتوا",
+    "Menu:Pages": "مدیریت صفحه ها",
+    "Menu:Blogs": "وبلاگ",
+    "Menu:UserManagment": "مدیریت کاربران",
+    "Menu:Users": "کاربران",
+    "Menu:Roles": "نقش و وظایف",
+    "Menu:Support": "پشتیبانی",
+    "Menu:AuditLogs": "گزارش های حسابرسی",
+    "Menu:SecurityLogs": "گزارش های امنیتی",
+
+
+    //-------------------------------Pages
+    "MenuPage": "مدیریت صفحه ",
+    "MenuPageList": "فهرست صفحه ها",
+    "NewPage": "ایجاد صفحه",
+    "SetAsHomePage": "انتخاب به عنوان صفحه اصلی",
+    "IsHomePage": "صفحه اصلی است",
+    //------------------------------- User
+    "UserName": "نام کاربری",
+    "Name": "نام",
+    "Surname": "نام خانوادگی",
+    "Email": "ایمیل",
+    "PhoneNumber": "شماره تلفن",
+    "ImpersonatorUserName": "نام کاربری جعل هویت",
+    "UsersList": "فهرست کاربران",
+    "CreateUser": "ایجاد کاربر",
+    "NewUser": "کاربر جدید",
+    "EmailConfirmed": "ایمیل تایید شد؟",
+    "PhoneNumberConfirmed": "شماره تلفن تایید شد؟",
+    "IsActive": "فعال است؟",
+    "UserInformation": "اطلاعات کاربر",
+    "Roles": "نقش ها",
+    //------------------------------- AuditLogs
+    "AuditLogs": "گزارش های حسابرسی",
+    "AuditLogsList": " فهرست گزارش های حسابرسی",
+
+
+    //------------------------------- SecurityLogs
+    "SecurityLogs": "گزارش های امنیتی",
+
+    //------------------------------- Permissions
+    "Permissions": "مجوزها",
+    "Permissions:Commerce": "مدیریت مجوزها",
+
+    "Permission:PageManagement": "مدیریت صفحه ها",
+    "Permission:PageManagement:Create": "ایجاد",
+    "Permission:PageManagement:Update": "تغییر",
+    "Permission:PageManagement:SetAsHomePage": "انتخاب صفحه اصلی",
+    "Permission:PageManagement:Delete": "حذف",
+
+    "Permission:IdentityManagement": "مدیریت هویت ها",
+    "Permission:IdentityManagement:SecurityLogs": "گزارش امنیتی",
+    "Permission:IdentityManagement:AuditLoggings": "گزارش حسابرسی",
+
+    //------------------------------- Messages
+    "AreYouSureToDelete": "آیا مطمئن هستید که حذف می کنید",
+    "AreYouSure": "مطمئنی",
+
+    //-------------------------------Success Message
+    "Success200": "با موفقیت",
+    "Successfully": "با موفقیت انجام شد",
+
+    //-------------------------------Messages Error
+
+    //Pages 
+    "SHJ.Commerce.Page:0001": "خطا مشخص نشده",
+    "SHJ.Commerce.Page:0002": "عنوان تکراری است",
+    //Identity
+    "Volo.Abp.Identity:DuplicateUserName": "نام کاربری تکرای می باشد"
+
+  }
+}

@@ -1,0 +1,419 @@
+<div class="card">
+  <!-- HEADER -->
+  <div class="card-header">
+    <div class="row">
+      <!-- TOP TITLE -->
+      <div class="col col-md-6">
+        <!-- CARD TITLE -->
+        <h5 class="card-title">
+          {{ '::UsersList' | abpLocalization }}
+        </h5>
+      </div>
+
+      <!-- CREATE PAGE BUTTON -->
+      <div class="col col-md-6">
+        <div class="col-auto d-flex justify-content-end my-2">
+          <button id="create" class="btn btn-primary" type="button" (click)="Create()">
+            <i class="fa fa-plus mr-1"></i>&nbsp;
+            <span>{{"::CreateUser" | abpLocalization}}</span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-body">
+
+
+    <!-- SEARCH PAGE  -->
+    <div class="col col-md-12">
+      <!-- FORM -->
+      <form (submit)="Search()">
+        <!-- INPUTE SEARCH -->
+        <div class="input-group">
+          <input (keyup)="Search()" [(ngModel)]="getUsers.filter" name="getUsers.filter" class="form-control"
+            [placeholder]="'::Search'| abpLocalization" autocomplete="off">
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- User Card List -->
+<div class="card">
+  <!-- Card Body -->
+  <div class="card-body">
+    <!-- TABLE PAGES -->
+    <ngx-datatable [rows]="users.items" [count]="users.totalCount" [list]="list" (page)="onPage($event)" default>
+
+      <!-- ACTIONS -->
+      <ngx-datatable-column [name]="'::Actions' |abpLocalization" [maxWidth]="150" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div ngbDropdown container="body" class="d-inline-block">
+            <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              ngbDropdownToggle>
+              <i class="fa fa-cog mr-1"></i>{{'::Actions' | abpLocalization}}
+            </button>
+            <!-- ACTION ITEMS -->
+            <div ngbDropdownMenu>
+
+              <button ngbDropdownItem (click)="Details(row.id)">{{'::Permissions' | abpLocalization}}</button>
+              <button ngbDropdownItem (click)="Details(row.id)">{{'::Details' | abpLocalization}}</button>
+              <button ngbDropdownItem (click)="Edit(row.id)">{{'::Edit' | abpLocalization}}</button>
+
+            </div>
+
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- Name -->
+      <ngx-datatable-column [name]="'::Name' |abpLocalization" prop="userName" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.name}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- SureName -->
+      <ngx-datatable-column [name]="'::Surname' |abpLocalization" prop="userName" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.surname}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- USERSNAME -->
+      <ngx-datatable-column [name]="'::UserName' |abpLocalization" prop="userName" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.userName}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- Email -->
+      <ngx-datatable-column [name]="'::Email' |abpLocalization" prop="email" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.email}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- EmailConfirmed -->
+      <ngx-datatable-column [name]="'::EmailConfirmed' | abpLocalization" prop="emailConfirmed" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span class="badge text-bg-success" *ngIf="row.emailConfirmed">{{"::Yes" | abpLocalization}}</span>
+          <span class="badge text-bg-danger" *ngIf="!row.emailConfirmed">{{"::No" | abpLocalization}}</span>
+        </ng-template>
+      </ngx-datatable-column>ّ
+
+      <!-- PhoneNumber -->
+      <ngx-datatable-column [name]="'::PhoneNumber' |abpLocalization" prop="phoneNumber" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.phoneNumber}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- phoneNumberConfirmed -->
+      <ngx-datatable-column [name]="'::PhoneNumberConfirmed' | abpLocalization" prop="phoneNumberConfirmed"
+        [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span class="badge text-bg-success" *ngIf="row.phoneNumberConfirmed">{{"::Yes" |
+            abpLocalization}}</span>
+          <span class="badge text-bg-danger" *ngIf="!row.phoneNumberConfirmed">{{"::No" |
+            abpLocalization}}</span>
+        </ng-template>
+      </ngx-datatable-column>ّ
+
+      <!-- IsActive -->
+      <ngx-datatable-column [name]="'::IsActive' | abpLocalization" prop="isActive" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span class="badge text-bg-success" *ngIf="row.isActive">{{"::Yes" | abpLocalization}}</span>
+          <span class="badge text-bg-danger" *ngIf="!row.isActive">{{"::No" | abpLocalization}}</span>
+        </ng-template>
+      </ngx-datatable-column>ّ
+
+
+
+
+
+    </ngx-datatable>
+  </div>
+</div>
+
+
+
+<!-- Create && Edit User Modal -->
+
+<abp-modal [(visible)]="isModalOpen">
+
+  <!-- header -->
+  <ng-template #abpHeader>
+    <h3>{{selectedUser.id ? '::Edit' :'::NewUser' | abpLocalization }}</h3>
+  </ng-template>
+
+  <!-- BODY -->
+  <ng-template #abpBody>
+    <!-- FORM -->
+    <form [formGroup]="form" (ngSubmit)="Save()">
+
+
+      <div class="tabs_defualt">
+        <!-- UserInformation tab -->
+        <input type="radio" class="tabs_radio" name="tab-defualt" id="tab-UserInformation" checked />
+        <label for="tab-UserInformation" class="tabs_lable">{{'::UserInformation' | abpLocalization}}</label>
+        <div class="tabs_content">
+
+
+          <!--  -->
+          <div class="form-group">
+            <p>{{errorMessage | abpLocalization}}</p>
+            <app-error>
+
+            </app-error>
+          </div>
+
+
+          <div class="row">
+
+            <!-- name -->
+            <div class="col col-md-6">
+              <div class="form-group">
+                <label for="name">{{'::Name' | abpLocalization}}</label>
+                <input type="text" id="name" class="form-control" formControlName="name" autofocus />
+              </div>
+            </div>
+
+            <!-- surname -->
+            <div class="col col-md-6">
+              <div class="form-group">
+                <label for="surname">{{'::Surname' | abpLocalization}}</label>
+                <input type="text" id="surname" class="form-control" formControlName="surname" autofocus />
+              </div>
+
+            </div>
+
+            <!-- userName -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <label for="userName">{{'::UserName' | abpLocalization}}</label><span class="text-danger"> * </span>
+                <input type="text" id="userName" class="form-control" formControlName="userName" autofocus />
+              </div>
+            </div>
+
+            <!-- email -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <label for="email">{{'::Email' | abpLocalization}} </label><span class="text-danger"> * </span>
+                <input type="email" id="email" class="form-control" formControlName="email" autofocus />
+              </div>
+            </div>
+
+            <!-- password -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <label for="password">{{'::Password' | abpLocalization}}</label><span class="text-danger"> * </span>
+                <abp-password id="password" formControlName="password" autofocus></abp-password>
+              </div>
+            </div>
+
+
+            <!-- phoneNumber -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <label for="phoneNumber">{{'::PhoneNumber' | abpLocalization}}</label>
+                <input type="number" id="phoneNumber" class="form-control" formControlName="phoneNumber" autofocus />
+              </div>
+            </div>
+
+
+            <!-- isActive -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" checked="checked" formControlName="isActive"
+                    class="form-check-input ng-valid ng-dirty ng-touched" id="IsActive">
+                  <label for="IsActive" class="form-check-label">{{ "::IsActive" | abpLocalization}}</label>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- lockoutEnabled -->
+            <div class="col col-md-12">
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" formControlName="lockoutEnabled" checked="checked"
+                    class="form-check-input ng-valid ng-dirty ng-touched" id="lockoutEnabled">
+                  <label for="lockoutEnabled" class="form-check-label"> قفل کردن حساب در صورت عدم موفقیت در ورود به
+                    سیستم</label>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- Roles tab-->
+        <input type="radio" class="tabs_radio" name="tab-defualt" id="tab-role" />
+        <label for="tab-role" class="tabs_lable">{{'::Roles' | abpLocalization}}</label>
+        <div class="tabs_content">
+
+          <!-- roles -->
+          <div class="col col-md-12 col-sm-6" *ngFor="let row of roles.items let index =index">
+            <!--  -->
+            <!-- checked="checked" -->
+            <div class="form-group">
+              <!--  -->
+              <div class="form-check" *ngIf="row.isAssignable">
+                <input type="checkbox" name="roleNames" formControlName="roleNames" 
+                   checked="checked" class="form-check-input ng-valid ng-dirty ng-touched" [attr.checked]="'role' + index" (click)="AddRoleToUser(row.name)">
+                <label [attr.for]="'role'+ index"  class="form-check-label">{{row.name}}</label>
+              </div>
+              <!--  -->
+              <div class="form-check" *ngIf="!row.isAssignable">
+                <input type="checkbox" name="roleNames" formControlName="roleNames" 
+                   class="form-check-input ng-valid ng-dirty ng-touched" [attr.checked]="'role' + index" (click)="AddRoleToUser(row.name)">
+                <label [attr.for]="'role'+ index"  class="form-check-label">{{row.name}}</label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+    </form>
+
+
+  </ng-template>
+
+  <!-- FOOTER -->
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+
+    <!--added save button-->
+    <button class="btn btn-primary" (click)="Save()" [disabled]="form.invalid">
+      <i class="fa fa-check mr-1"></i>
+      {{'::Save' | abpLocalization}}
+
+    </button>
+
+  </ng-template>
+
+</abp-modal>
+
+
+
+
+
+
+<!-- ditails user -->
+
+<abp-modal [(visible)]="isModalDetailOpen">
+  <!-- HEADER -->
+  <ng-template #abpHeader>
+    <h3>{{'::Details' | abpLocalization}} </h3>
+  </ng-template>
+  <!-- BODY -->
+  <ng-template #abpBody>
+
+    <!-- content -->
+    <table class="table table-striped ">
+      <thead class="">
+        <tr class="">
+          <th class="">{{'::PropertyName' | abpLocalization}}</th>
+          <th class="">{{'::Value' | abpLocalization}}</th>
+        </tr>
+      </thead>
+      <tbody class="">
+
+        <!-- name -->
+        <tr class="">
+          <td class="">{{'::Name' | abpLocalization}}</td>
+          <td class="">{{selectedUser.name}}</td>
+        </tr>
+
+        <!--  -->
+        <tr class="">
+          <td class="">{{'::Surename' | abpLocalization}}</td>
+          <td class="">{{selectedUser.surname}}</td>
+        </tr>
+
+        <!--  -->
+        <tr class="">
+          <td class="">{{'::UserName' | abpLocalization}}</td>
+          <td class="">{{selectedUser.userName}}</td>
+        </tr>
+
+        <!--  -->
+        <tr class="">
+          <td class="">{{'::Email' | abpLocalization}}</td>
+          <td class="">{{selectedUser.email}}</td>
+        </tr>
+
+        <tr class="">
+          <td class="">{{'::EmailConfirmed' | abpLocalization}}</td>
+          <td class="">
+            <span class="badge text-bg-success" *ngIf="selectedUser.emailConfirmed">{{"::Yes" | abpLocalization}}</span>
+            <span class="badge text-bg-danger" *ngIf="!selectedUser.emailConfirmed">{{"::No" | abpLocalization}}</span>
+          </td>
+        </tr>
+
+        <tr class="">
+          <td class="">{{'::PhoneNumber' | abpLocalization}}</td>
+          <td class="">{{selectedUser.phoneNumber}}</td>
+        </tr>
+
+
+        <tr class="">
+          <td class="">{{'::PhoneNumberConfirmed' | abpLocalization}}</td>
+          <td class="">
+            <span class="badge text-bg-success" *ngIf="selectedUser.phoneNumberConfirmed">{{"::Yes" |
+              abpLocalization}}</span>
+            <span class="badge text-bg-danger" *ngIf="!selectedUser.phoneNumberConfirmed">{{"::No" |
+              abpLocalization}}</span>
+
+          </td>
+        </tr>
+
+        <tr class="">
+          <td class="">{{'::IsActive' | abpLocalization}}</td>
+          <td class="">
+            <span class="badge text-bg-success" *ngIf="selectedUser.isActive">{{"::Yes" | abpLocalization}}</span>
+            <span class="badge text-bg-danger" *ngIf="!selectedUser.isActive">{{"::No" | abpLocalization}}</span>
+          </td>
+        </tr>
+
+
+
+      </tbody>
+    </table>
+
+  </ng-template>
+
+  <!-- FOOTER -->
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+
+
+  </ng-template>
+
+
+</abp-modal>

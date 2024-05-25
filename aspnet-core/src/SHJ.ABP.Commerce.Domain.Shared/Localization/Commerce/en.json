@@ -1,0 +1,91 @@
+{
+  "culture": "en",
+  "texts": {
+
+
+
+    //-------------------------------Public
+    "Welcome": "Welcome",
+    "Support": "Support",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the SHJ framework. For more information, visit SHJSOFT.COM",
+    "Close": "Close",
+    "Save": "Save",
+    "Search": "Search",
+    "UserName": "User name",
+    "User": "User",
+    "Value": "Value",
+    "DATE": "DATE",
+    "IP-Address": "IP address",
+    "IPAddress": "IP address",
+    "PropertyName": "PropertyName",
+    "TenantName": "Tenant Name",
+    "ImpersonatorUserName": "Impersonator user name",
+    "ApplicationName": "Application name",
+    "ImpersonatorTenantName": "Impersonator tenant name",
+    "ExecutionTime": "Execution time",
+    "ExecutionDuration": "Execution duration",
+    "ClientIpAddress": "Client ip address",
+    "ClientName": "Client name",
+    "ClientId": "Client id",
+    "BrowserInfo": "Browser info",
+    "HttpMethod": "HttpMethod",
+    "Url": "url",
+    "Exceptions": "Exceptions",
+    "Comments": "Comments",
+    "HttpStatusCode": "HttpStatusCode",
+    "StartDate": "Start date",
+    "EndDate": "End date",
+
+    //-------------------------------Question
+    "AreYouSureToDelete": "Are you sure to delete this",
+    "AreYouSure": "Are you sure",
+    //-------------------------------error
+    "Error400": "An error 400 has occurred!",
+    "Error401": "An error 401 has occurred!",
+    "Error402": "An error 402 has occurred!",
+    "Error403": "An error 403 has occurred!",
+    "Error500": "An error 500 has occurred!",
+    "ErrorOperation": "Error in operation",
+    //-------------------------------Success Message
+    "Success200": "Successfully", 
+    "Successfully": "Done successfully",
+    //-------------------------------Dashboard Menu
+    "Menu:Dashboard": "Dashboard",
+    "Menu:CMS": "CMS",
+    "Menu:Pages": "Pages",
+    "Menu:Blogs": "Blogs",
+    "Menu:Home": "Home",
+    //-------------------------------UserManagement
+    "UsersManagement": "Users Management",
+    //-------------------------------Pages
+    "MenuPage": "Page management",
+    "MenuPageList": "Page List",
+    "NewPage": "New Page",
+    "TitlePage": "Title",
+    "ContentPage": "Content",
+    "IsHomePage": "Is home page",
+    "IsHomePageTrue": "YES",
+    "IsHomePageFalse": "NO",
+    "SetAsHomePage": "Change Home Page Status",
+    "CreationTime": "CreationTime",
+    "Creator": "Creator",
+    "LastModificationTime": "LastMocdificationTime",
+    "LastModifier": "LastModifier",
+    "RemovedSettingAsHomePage": "Removed setting as home page",
+    "CompletedSettingAsHomePage": "Completed setting As home Page",
+    //Pages ERROR
+    "SHJ.Commerce.Page:0001": "",
+    "SHJ.Commerce.Page:0002": "The title is dublicate",
+    //------------------------------- AuditLog
+    "AuditLog": "Audit Log",
+    "AuditLogsList": "Audit logs list",
+    "AuditLoggings": "Audit loggings",
+    "Duration-Min-Max": "Duration (Min. - Max.)"
+
+
+
+
+
+
+  }
+}
